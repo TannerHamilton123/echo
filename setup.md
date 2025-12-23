@@ -8,6 +8,11 @@ There is a constant circle around Echo so that she can see objects.
 Echo moves with the arrow keys.
 space bar to echolocate
 Echo has a hunger bar that slowly depletes as they move, and depletes every time she echolocates
+movement
+flaps wings at increments, falling from gravity.
+pressing up increases rate of wing flapping
+pressing down decreases rate of wing flapping
+or maybe movement changes the power/velocity of the wing flap?
 
 Food [green]
 Static food- berries
