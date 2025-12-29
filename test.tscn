@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://byawpb0ek6yqb"]
+
+[ext_resource type="PackedScene" uid="uid://cnca0ob13tppr" path="res://echo.tscn" id="1_37kl0"]
+[ext_resource type="PackedScene" uid="uid://cw5nmj5ijrjl" path="res://UI.tscn" id="2_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://chfg0mx3ps4oe" path="res://fly.tscn" id="3_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://ciegsr5n0yki8" path="res://fruit.tscn" id="4_ppyta"]
+[ext_resource type="Script" uid="uid://devirujbnwiuj" path="res://darkness.gd" id="5_ykrsh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8uh7m"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="echo" parent="." instance=ExtResource("1_37kl0")]
+position = Vector2(589, 294)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("2_8uh7m")]
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(527, 641)
+shape = SubResource("WorldBoundaryShape2D_8uh7m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(527, 25)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_8uh7m")
+
+[node name="fly" parent="." instance=ExtResource("3_6uqi0")]
+modulate = Color(1, 1, 1, 0.09411765)
+position = Vector2(428, 277)
+
+[node name="fly2" parent="." instance=ExtResource("3_6uqi0")]
+modulate = Color(1, 1, 1, 0.29411766)
+position = Vector2(694, 161)
+
+[node name="fruit" parent="." instance=ExtResource("4_ppyta")]
+modulate = Color(1, 1, 1, 0.25490198)
+position = Vector2(127, 351)
+
+[node name="fruit2" parent="." instance=ExtResource("4_ppyta")]
+position = Vector2(939, 192)
+
+[node name="darkness" type="Node" parent="."]
+script = ExtResource("5_ykrsh")

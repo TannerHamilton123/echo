@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwod3i5g7spmj"]
+
+[ext_resource type="Script" uid="uid://d26opbb4cc7mg" path="res://screech.gd" id="1_afbts"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afbts"]
+radius = 1.0
+
+[node name="screech" type="Node2D"]
+script = ExtResource("1_afbts")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_afbts")
+debug_color = Color(5.7756904e-07, 0.48422843, 0.5681678, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
