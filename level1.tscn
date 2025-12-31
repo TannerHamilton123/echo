@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://byawpb0ek6yqb"]
+
+[ext_resource type="Script" uid="uid://debocpeqmpfxq" path="res://camera_2d.gd" id="1_crycw"]
+[ext_resource type="PackedScene" uid="uid://cnca0ob13tppr" path="res://echo.tscn" id="1_v8kj3"]
+[ext_resource type="PackedScene" uid="uid://cw5nmj5ijrjl" path="res://UI.tscn" id="2_crycw"]
+[ext_resource type="Script" uid="uid://devirujbnwiuj" path="res://darkness.gd" id="3_i2041"]
+[ext_resource type="PackedScene" uid="uid://chfg0mx3ps4oe" path="res://fly.tscn" id="4_xy4tn"]
+[ext_resource type="PackedScene" uid="uid://ciegsr5n0yki8" path="res://fruit.tscn" id="5_usj0q"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8uh7m"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+script = ExtResource("1_crycw")
+
+[node name="echo" parent="." instance=ExtResource("1_v8kj3")]
+position = Vector2(589, 294)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("2_crycw")]
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="bottom" type="CollisionShape2D" parent="walls"]
+position = Vector2(527, 779)
+shape = SubResource("WorldBoundaryShape2D_8uh7m")
+
+[node name="left" type="CollisionShape2D" parent="walls"]
+position = Vector2(0, 360)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_8uh7m")
+
+[node name="right" type="CollisionShape2D" parent="walls"]
+position = Vector2(2000, 360)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_8uh7m")
+
+[node name="top" type="CollisionShape2D" parent="walls"]
+position = Vector2(527, 25)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_8uh7m")
+
+[node name="ColorRect" type="ColorRect" parent="walls"]
+offset_left = -1000.0
+offset_top = 780.0
+offset_right = 9000.0
+offset_bottom = 830.0
+
+[node name="darkness" type="Node" parent="."]
+script = ExtResource("3_i2041")
+
+[node name="entities" type="Node" parent="."]
+
+[node name="fly" parent="entities" instance=ExtResource("4_xy4tn")]
+position = Vector2(429, 277)
+
+[node name="fly2" parent="entities" instance=ExtResource("4_xy4tn")]
+position = Vector2(695, 161)
+
+[node name="fly3" parent="entities" instance=ExtResource("4_xy4tn")]
+position = Vector2(695, 161)
+
+[node name="fly4" parent="entities" instance=ExtResource("4_xy4tn")]
+position = Vector2(695, 161)
+
+[node name="fly5" parent="entities" instance=ExtResource("4_xy4tn")]
+position = Vector2(695, 161)
+
+[node name="fly6" parent="entities" instance=ExtResource("4_xy4tn")]
+position = Vector2(695, 161)
+
+[node name="fly7" parent="entities" instance=ExtResource("4_xy4tn")]
+position = Vector2(695, 161)
+
+[node name="fruit" parent="entities" instance=ExtResource("5_usj0q")]
+position = Vector2(128, 351)
+
+[node name="fruit3" parent="entities" instance=ExtResource("5_usj0q")]
+position = Vector2(1697, 234)
+
+[node name="fruit4" parent="entities" instance=ExtResource("5_usj0q")]
+position = Vector2(1509, 668)
+
+[node name="fruit2" parent="entities" instance=ExtResource("5_usj0q")]
+position = Vector2(940, 192)

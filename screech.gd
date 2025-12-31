@@ -37,8 +37,10 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	var transparency = lerp(0.0,1.0, area_radius / max_radius)
-	body.modulate.a = transparency
-	print(body.name)
+	if body.name == "echo":
+		pass
+	var transparency = lerp(1.0,0.0,(area_radius / 3 / max_radius))
+	body.modulate.a = transparency  
+	
 	pass # Replace with function body.
 	

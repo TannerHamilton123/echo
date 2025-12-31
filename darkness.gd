@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	for child in get_parent().get_children():
+	for child in get_parent().find_child("entities").get_children():
 		if child.is_in_group("food"):
 			child.modulate.a -= 0.005
 	pass
